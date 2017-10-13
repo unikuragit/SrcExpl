@@ -1306,8 +1306,10 @@ function! <SID>SrcExpl_Init()
     " The key word symbol for exploring
     let s:SrcExpl_symbol = ''
 
-    " Auto change current work directory
-    exe "set autochdir"
+    if !exists('g:SrcExpl_noautochdir')
+      " Auto change current work directory
+      exe "set autochdir"
+    endif
     " Let Vim find the possible tags file
     exe "set tags=tags;"
     " Set the actual update time according to user's requirement
